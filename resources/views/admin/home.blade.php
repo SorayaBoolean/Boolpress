@@ -1,4 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Benvenuto nell'area Admin!</h1>
+    <div class="container">
+        <h1>Benvenuto/a nell'area Amministrativa!</h1>
+    </div>
+    
 @endsection

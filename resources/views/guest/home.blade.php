@@ -12,9 +12,6 @@
     <div id="root"></div>
 
 
-    <h1>Work in progress</h1>
-
-
-    <script src="{{asset(js/front.js)}}"></script>
+    <script src="{{asset('js/front.js')}}"></script>
 </body>
 </html>

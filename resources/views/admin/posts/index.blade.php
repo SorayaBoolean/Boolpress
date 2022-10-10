@@ -24,7 +24,7 @@
                 <td>{{$post->slug}}</td>
                 <td>
                     <a href="#" class="btn btn-outline-success mx-2">Show</a>
-                    <a href="#" class="btn btn-outline-warning">Modify</a>
+                    <a href="{{route('admin.posts.edit', ['post'=> $post->id])}}" class="btn btn-outline-warning">Modify</a>
                 </td>
               </tr>
               @endforeach

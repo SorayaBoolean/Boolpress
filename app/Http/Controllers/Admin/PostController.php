@@ -82,7 +82,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
         return view('admin.posts.edit', compact('post'));
     }
@@ -96,7 +96,15 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required|max:65535'
+        ]);
+
+        $data = $request->all();
+        $post->update($data);
+        $post->save();
+        return redirect()->route('admin.posts.index')->with('status', 'Post updated with success!');
     }
 
     /**

@@ -23,9 +23,18 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->slug}}</td>
                 <td>
-                    <a href="{{route('admin.posts.show', ['post'=> $post->id])}}" class="btn btn-success mx-2">Show</a>
-                    <a href="{{route('admin.posts.edit', ['post'=> $post->id])}}" class="btn btn-warning">Modify</a>
-                </td>
+                    <a href="{{route('admin.posts.show', ['post'=> $post->id])}}" class="btn btn-outline-success mx-2">Show</a>
+                    
+                    <a href="{{route('admin.posts.edit', ['post'=> $post->id])}}" class="btn btn-outline-warning mx-2">Modify</a>
+                    
+                   <form action="{{route('admin.posts.destroy', ['post'=> $post->id])}}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button class="btn btn-outline-danger mx-2">Delete</a>
+                   </form> 
+                    
+                  
+                  </td>
               </tr>
               @endforeach
             </tbody>

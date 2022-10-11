@@ -94,7 +94,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
         $request->validate([
             'title' => 'required|max:255',
@@ -102,8 +102,30 @@ class PostController extends Controller
         ]);
 
         $data = $request->all();
+
+        if($post->title !== $data['title']) {
+
+            $slug=Str::slug($post->title, '-');
+
+            $checkPost= Post::where('slug', $slug)->first();
+
+            $counter = 1;
+
+            while($checkPost){
+
+            $slug=Str::slug($post->title. '-' . $counter, '-');
+            $counter++;
+            $checkPost= Post::where('slug', $slug)->first();
+        }
+            $data['slug'] = $slug;
+        };
+
+        
+
+
         $post->update($data);
         $post->save();
+
         return redirect()->route('admin.posts.index')->with('status', 'Post updated with success!');
     }
 

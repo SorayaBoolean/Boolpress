@@ -43,11 +43,11 @@ class PostController extends Controller
          ]);
 
         
+         $data=$request->all();
          $post= new Post();
          $post->fill($data);
 
          $slug=Str::slug($post->title, '-');
-
          $checkPost= Post::where('slug', $slug)->first();
          $counter = 1;
          while($checkpost){
@@ -56,9 +56,7 @@ class PostController extends Controller
             $counter++;
             $checkPost= Post::where('slug', $slug)->first();
          }
-
          $post->slug = $slug;
-
          $post-> save();
 
          return redirect()->route('admin.posts.index');

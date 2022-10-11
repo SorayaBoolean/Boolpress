@@ -7,8 +7,8 @@
             <p>{{$post->title}}</p>
         </div>
         <div class="">
-            <strong>Description:</strong>
-            <p>{{$post->description}}</p>
+            <strong>Content:</strong>
+            <p>{{$post->content}}</p>
         </div>
         <div class="">
             <strong>Slug:</strong>

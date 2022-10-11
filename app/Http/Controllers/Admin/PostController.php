@@ -124,7 +124,7 @@ class PostController extends Controller
 
 
         $post->update($data);
-        $post->save();
+        
 
         return redirect()->route('admin.posts.index')->with('status', 'Post updated with success!');
     }

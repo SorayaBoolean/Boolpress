@@ -3,7 +3,7 @@
     <div class="container">
 
         <div>
-            <a href="{{route('admin.posts.create')}}" method="GET" class="btn btn-primary my-2">Add+</a>
+            <a href="{{route('admin.posts.create')}}" method="GET" class="btn btn-outline-primary my-2">Add+</a>
         </div>
 
         <table class="table">
@@ -23,14 +23,14 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->slug}}</td>
                 <td>
-                    <a href="{{route('admin.posts.show', ['post'=> $post->id])}}" class="btn btn-outline-success mx-2">Show</a>
+                    <a href="{{route('admin.posts.show', ['post'=> $post->id])}}" class="btn btn-outline-success mx-1">Show</a>
                     
-                    <a href="{{route('admin.posts.edit', ['post'=> $post->id])}}" class="btn btn-outline-warning mx-2">Modify</a>
+                    <a href="{{route('admin.posts.edit', ['post'=> $post->id])}}" class="btn btn-outline-warning mx-1">Modify</a>
                     
                    <form action="{{route('admin.posts.destroy', ['post'=> $post->id])}}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button class="btn btn-outline-danger mx-2">Delete</a>
+                    <button class="btn btn-outline-danger my-2">Delete</a>
                    </form> 
                     
                   

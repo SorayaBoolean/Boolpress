@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="container ">
-        <a class="btn btn-primary my-2" href="{{route('admin.posts.index')}}">< Back</a>
+        <a class="btn btn-outline-info my-2" href="{{route('admin.posts.index')}}">< Back</a>
     </div>
 
 

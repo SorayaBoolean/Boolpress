@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -50,7 +51,8 @@ class PostController extends Controller
          $slug=Str::slug($post->title, '-');
          $checkPost= Post::where('slug', $slug)->first();
          $counter = 1;
-         while($checkpost){
+
+         while($checkPost){
 
             $slug=Str::slug($post->title. '-' . $counter, '-');
             $counter++;
